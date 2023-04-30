@@ -1,0 +1,16 @@
+summary:
+  method: GET
+  path: /the-code/common/config/v1
+  description: Get application configruation values.
+
+# request:
+
+response:
+- field: limit_api_call
+  type: Bool
+  required: true
+  description: "Indicate application's api call limited."
+- field: minimum_version
+  type: String
+  required: ue
+  description: "Available minimum application version."
