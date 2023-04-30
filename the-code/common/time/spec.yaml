@@ -1,0 +1,8 @@
+summary:
+  method: GET
+  path: /the-code/common/time/v1
+  description: Get server GMT time.
+
+# request:
+
+# response:
