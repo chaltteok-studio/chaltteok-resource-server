@@ -1,0 +1,54 @@
+<details>
+<summary> <%= yaml["summary"]["method"] %> <%= yaml["summary"]["path"] %> </summary>
+&nbsp;
+
+<%= yaml["summary"]["description"] %>
+
+### Request
+<table>
+    <thead>
+        <tr>
+            <th> Field </th>
+            <th> Type </th>
+            <th> Required </th>
+            <th> Description </th>
+        </tr>
+    </thead>
+    <tbody>
+        <%- if !yaml["request"].nil? -%>
+        <%- yaml["request"].each do |field| -%>
+        <tr>
+            <td> <%= field["field"] %> </td>
+            <td> <%= field["type"] %> </td>
+            <td> <%= field["required"] %> </td>
+            <td> <%= field["description"] %> </td>
+        </tr>
+        <%- end -%>
+        <%- end -%>
+    </tbody>
+</table>
+
+### Response
+<table>
+    <thead>
+        <tr>
+            <th> Field </th>
+            <th> Type </th>
+            <th> Required </th>
+            <th> Description </th>
+        </tr>
+    </thead>
+    <tbody>
+        <%- if !yaml["response"].nil? -%>
+        <%- yaml["response"].each do |field| -%>
+        <tr>
+            <td> <%= field["field"] %> </td>
+            <td> <%= field["type"] %> </td>
+            <td> <%= field["required"] ? "✅" : "☑️" %> </td>
+            <td> <%= field["description"] %> </td>
+        </tr>
+        <%- end -%>
+        <%- end -%>
+    </tbody>
+</table>
+</details>
