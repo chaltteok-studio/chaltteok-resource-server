@@ -1,0 +1,26 @@
+#!/bin/sh
+
+case $1 in
+    deploy)
+        if [[ -z $2 ]]; then
+            echo "Usage: server deploy <server name>"
+            exit 1
+        fi
+        
+        # Run generate spec ruby script
+        ruby Tool/Spec/spec.rb Tool/Spec/template.md.erb README.md
+        # Run deploy ruby script
+        ruby Tool/Deploy/deploy.rb $2
+        ;;
+    spec)
+        # Run generate spec ruby script
+        ruby Tool/Spec/spec.rb Tool/Spec/template.md.erb README.md
+        ;;
+    *)
+        echo "Usage: server <command> <arguments> ..."
+        echo "Command:"
+        echo " deploy           Deploy changes to server. include spec action."
+        echo " spec             Generate API specification." 
+        exit 1
+        ;;
+esac

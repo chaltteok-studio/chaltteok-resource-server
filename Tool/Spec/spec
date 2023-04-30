@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [[ -z $1 && -z $2 ]]; then
+    echo "Usage: spec <template path> <output path>"
+    exit 1
+fi
+
+ruby $(dirname $0)/spec.rb

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [[ -z $1 ]]; then
+    echo "Usage: deploy <server name>"
+    exit 1
+fi
+
+ruby $(dirname $0)/deploy.rb $1
